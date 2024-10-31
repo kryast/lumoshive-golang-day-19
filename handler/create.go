@@ -48,7 +48,11 @@ func CreateAdmin(db *sql.DB) {
 	response := model.Response{
 		StatusCode: 200,
 		Message:    "create success",
-		Data:       admin,
+		Data: model.Admin{
+			AdminName: admin.AdminName,
+			Username:  admin.Username,
+			Password:  admin.Password,
+		},
 	}
 
 	jsonData, err := json.MarshalIndent(response, "", "  ")
